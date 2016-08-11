@@ -20,7 +20,7 @@ namespace HelpDesk2
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Window _sde;
+        private SDE _sde;
 
         public MainWindow()
         {
@@ -40,6 +40,55 @@ namespace HelpDesk2
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _sde.Show();
+        }
+
+        private void VenueComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem item = e.AddedItems[0] as ComboBoxItem;
+                _sde.VenueName = item.Content as String;
+            }
+            catch
+            {
+                // Do nothing.
+            }
+        }
+
+        //private void SpeakingWithComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        ComboBoxItem item = e.AddedItems[0] as ComboBoxItem;
+        //        _sde.SpokeTo = item.Content as String;
+        //    }
+        //    catch
+        //    {
+        //        // Do nothing.
+        //    }
+        //}
+
+        private void SpeakingWithComboBox_TextChanged(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TextBox tb = e.OriginalSource as TextBox;
+                _sde.SpokeTo = tb.Text as String;
+            }
+            catch
+            {
+                // Do nothing.
+            }
+        }
+
+        private void FakeCall1Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FakeCall2Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

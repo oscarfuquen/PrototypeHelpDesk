@@ -32,5 +32,30 @@ namespace HelpDesk2
             e.Cancel = true;
             this.Hide();
         }
+
+
+        public string _venueName;
+        public string VenueName
+        {
+            get { return _venueName; }
+            set
+            {
+                _venueName = value;
+                _venueNameText.Text = _venueName;
+            }
+        }
+
+
+        public string _spokeTo;
+        public string SpokeTo
+        {
+            get { return _spokeTo; }
+            set
+            {
+                _spokeTo = value;
+                _spokeToText.Text = _spokeTo;
+            }
+        }
+
     }
 }

@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelpDesk2"
         mc:Ignorable="d"
-        Title="SDE" Height="300" Width="300">
+        Title="SDE" Height="892" Width="890"><!--Height="892" Width="913"-->
     <Grid>
-        <TextBlock>This is SDE.</TextBlock>
+        <Image Source="C:\___TattsHack\git\PrototypeHelpDesk\HelpDesk2\sdeimages\EGMEventQueueFull.png" />
+        <TextBlock x:Name="_venueNameText" HorizontalAlignment="Left" Margin="186,152,0,0" Text="Brisbane Broncos" VerticalAlignment="Top" Width="193"/>
+        <TextBlock x:Name="_spokeToText" HorizontalAlignment="Left" Margin="186,173,0,0" Text="Tom" VerticalAlignment="Top" Width="193"/>
+        <!--<TextBlock>This is SDE.</TextBlock>-->
     </Grid>
 </Window>
