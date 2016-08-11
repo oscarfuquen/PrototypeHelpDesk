@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelpDesk2"
         mc:Ignorable="d"
-        Title="A Better Call" Height="294.8" Width="690.4">
+        Title="A Better Call" Height="294.8" Width="700" Icon="MAX.ico">
     <Window.Resources>
         <local:VenueList x:Key="VenueListData" />
     </Window.Resources>
-    
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="513*"/>
+            <ColumnDefinition Width="169*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -18,7 +22,7 @@
         </Grid.RowDefinitions>
 
 
-        <Grid Grid.Row="0" Margin="10">
+        <Grid Grid.Row="0" Margin="10" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Image x:Name="_callImage" Width="50" />
 
@@ -33,7 +37,7 @@
                         <TextBox x:Name="_venueIdText" Margin="5" Width="76">1234</TextBox>
                         <ComboBox x:Name="_venueCombo" Margin="5" Width="200" ItemsSource="{Binding Source={StaticResource VenueListData}}"
                                   IsSynchronizedWithCurrentItem="True" SelectionChanged="VenueComboBox_SelectionChanged">
-                       </ComboBox>
+                        </ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Margin="5">Speaking with:</TextBlock>
@@ -48,7 +52,7 @@
 
 
 
-        <Grid Grid.Row="1" Margin="10">
+        <Grid Grid.Row="1" Margin="10" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -69,10 +73,10 @@
             <Button Grid.Column="2" HorizontalAlignment="Right" Click="Button_Click" Margin="0,1.6,-176,5.2" Width="121" Grid.Row="1">Log Call</Button>
         </Grid>
 
-        <Grid Grid.Row="2">
-            <Button x:Name="fake1" Width="100" Height="20" HorizontalAlignment="Left" Click="FakeCall1Button_Click">Fake call 1</Button>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Button x:Name="fake1" Width="175" Height="60" HorizontalAlignment="Left" Click="FakeCall1Button_Click">Fake call 1</Button>
             <Button Width="200" Height="25" HorizontalAlignment="Center" Click="FakeCallHangUpButton_Click">Hang Up</Button>
-            <Button x:Name="fake2" Width="100" Height="20"  HorizontalAlignment="Right" Click="FakeCall2Button_Click">Fake call 2</Button>
+            <Button x:Name="fake2" Width="175" Height="60"  HorizontalAlignment="Right" Click="FakeCall2Button_Click">Fake call 2</Button>
         </Grid>
     </Grid>
 </Window>
