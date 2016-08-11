@@ -15,6 +15,7 @@ namespace HelpDesk2
             Add(new Venue { Id = 0, Name = "Unknown" });
             int venueId = 100;
             var venuesStr = File.ReadAllLines("VenueNameList.txt");
+            Array.Sort(venuesStr);
             foreach (var venue in venuesStr)
             {
                 Add(new Venue { Id = venueId++, Name = venue });
