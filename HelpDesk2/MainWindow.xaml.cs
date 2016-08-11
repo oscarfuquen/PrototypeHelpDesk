@@ -102,6 +102,7 @@ namespace HelpDesk2
             {
                 ComboBoxItem item = _venueCombo.SelectedItem as ComboBoxItem;
                 _sde.VenueName = item.Content as String;
+                _sde.VenueName += ", " + _venueIdText.Text;
             }
             catch
             {
@@ -123,6 +124,8 @@ namespace HelpDesk2
             {
                 _sde.SpokeTo = speakTo;
             }
+
+            _sde.NewSRWithTemplate();
 
             if (staff.Any(s => s != speakTo))
             {
@@ -232,19 +235,19 @@ namespace HelpDesk2
             _phoneNoText.FontWeight = FontWeights.Bold;
         }
 
-
+        
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
                 var details = CategoryDetails;
-                var comboBox = sender as ComboBox;
-                string category = comboBox?.SelectedItem as string;
+            var comboBox = sender as ComboBox;
+            string category = comboBox?.SelectedItem as string;
                 if (!IsNullOrEmpty(category))
-                {
-                    this.CBDetails.ItemsSource = details.Where(s => s.CategoryName == category).Select(s => s.Detail);
-                    this.CBDetails.SelectedIndex = 0;
-                }
+            {
+                this.CBDetails.ItemsSource = details.Where(s => s.CategoryName == category).Select(s => s.Detail);
+                this.CBDetails.SelectedIndex = 0;
+            }
             }
             catch { }
         }
@@ -253,20 +256,20 @@ namespace HelpDesk2
         {
             try
             {
-                List<string> data = new List<string>();
-                data.Add("Cashier");
-                data.Add("EGM");
-                data.Add("Loyalty");
-                data.Add("Maxgaming Loyalty");
-                data.Add("Maxn DMS");
-                data.Add("Maxn SWL");
-                var comboBox = sender as ComboBox;
-                if (comboBox != null) comboBox.ItemsSource = data;
-            }
+            List<string> data = new List<string>();
+            data.Add("Cashier");
+            data.Add("EGM");
+            data.Add("Loyalty");
+            data.Add("Maxgaming Loyalty");
+            data.Add("Maxn DMS");
+            data.Add("Maxn SWL");
+            var comboBox = sender as ComboBox;
+            if (comboBox != null) comboBox.ItemsSource = data;
+        }
             catch
             {
-
-            }
-        }
+        
+    }
+}
     }
 }

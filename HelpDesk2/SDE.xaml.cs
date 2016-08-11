@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,15 @@ namespace HelpDesk2
 
             // Don't close, just hide the window.
             this.Closing += new System.ComponentModel.CancelEventHandler(AppWindow_Closing);
+
+            bool visibleButtons = false;
+            bool.TryParse(ConfigurationManager.AppSettings["VisibleButtons"].ToString(), out visibleButtons);
+            if (!visibleButtons)
+            {
+                _closeButton.Opacity = 0;
+                _saveButton.Opacity = 0;
+                _srCloseButton.Opacity = 0;
+            }
         }
 
         void AppWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -57,5 +67,37 @@ namespace HelpDesk2
             }
         }
 
+        private void SetBackgroundImage(string fileName)
+        {
+            BitmapImage image = new BitmapImage(new Uri("/HelpDesk2;component/sdeimages/" + fileName, UriKind.Relative));
+            _image.Source = image;
+        }
+
+        public void NewSRWithTemplate()
+        {
+            SetBackgroundImage("sr template.png");
+            _descriptionTextBox.Text = "EGM # has an event queue full.";
+            _descriptionTextBox.Visibility = Visibility.Visible;
+            _venueNameText.Visibility = Visibility.Visible;
+            _spokeToText.Visibility = Visibility.Visible;
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetBackgroundImage("sr saved.png");
+        }
+
+        private void srCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetBackgroundImage("dashboard.png");
+            _descriptionTextBox.Visibility = Visibility.Hidden;
+            _venueNameText.Visibility = Visibility.Hidden;
+            _spokeToText.Visibility = Visibility.Hidden;
+        }
     }
 }
