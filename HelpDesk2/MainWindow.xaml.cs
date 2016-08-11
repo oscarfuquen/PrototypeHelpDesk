@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.IO;
 using System.Linq;
@@ -18,26 +19,6 @@ namespace HelpDesk2
     public partial class MainWindow : Window
     {
         private SDE _sde;
-
-        private static List<Venue> _venues;
-        private static List<Venue> Venues
-        {
-            get
-            {
-                if (_venues == null)
-                {
-                    _venues = new List<Venue>();
-                    int venueId = 100;
-                    var venuesStr = File.ReadAllLines("VenueNameList.txt");
-                    foreach (var venue in venuesStr)
-                    {
-                        _venues.Add(new Venue { Id = venueId++, Name = venue });
-                    }
-                }
-
-                return _venues;
-            }
-        }
 
         private static List<Details> CategoryDetails
         {
@@ -94,6 +75,8 @@ namespace HelpDesk2
 
             SetCallImage(false, false);
             _phoneNoText.FontWeight = FontWeights.Normal;
+            _venueCombo.SelectedItem = _venueCombo.Items[0];
+            _venueIdText.Text = (_venueCombo.Items[0] as Venue).Id.ToString();
 
             bool visibleButtons = false;
             bool.TryParse(ConfigurationManager.AppSettings["VisibleButtons"].ToString(), out visibleButtons);
@@ -102,8 +85,6 @@ namespace HelpDesk2
                 this.fake1.Opacity = 0;
                 this.fake2.Opacity = 0;
             }
-
-            var venues = Venues;
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -152,8 +133,9 @@ namespace HelpDesk2
         {
             try
             {
-                ComboBoxItem item = e.AddedItems[0] as ComboBoxItem;
-                _sde.VenueName = item.Content as String;
+                Venue venue = e.AddedItems[0] as Venue;
+                _sde.VenueName = venue.Name;
+                _venueIdText.Text = venue.Id.ToString();
             }
             catch
             {
@@ -209,7 +191,6 @@ namespace HelpDesk2
         private void FakeCall1Button_Click(object sender, RoutedEventArgs e)
         {
             SetCallImage(true);
-            _venueIdText.Text = "234";
             _venueCombo.SelectedIndex = 1;
             _speakingWithCombo.SelectedItem = null;
             _phoneNoText.Text = "+61 7 3317 7777";
@@ -219,7 +200,6 @@ namespace HelpDesk2
         private void FakeCall2Button_Click(object sender, RoutedEventArgs e)
         {
             SetCallImage(true);
-            _venueIdText.Text = "5423";
             _venueCombo.SelectedIndex = 2;
             _speakingWithCombo.SelectedItem = null;
             _phoneNoText.Text = "+61 7 3822 1234";
