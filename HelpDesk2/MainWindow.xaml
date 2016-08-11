@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelpDesk2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="525">
+        Title="MainWindow" Height="250" Width="550">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
 
@@ -19,18 +20,28 @@
                 <Image Source="C:\___TattsHack\icons\asdf\phone_red.gif" Width="50" />
 
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                    <TextBlock VerticalAlignment="Center" Margin="10,0,0,0">Ph #:</TextBlock>
-                    <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16" FontWeight="Bold">+61 7 3317 7777</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="10,0,10,0">Ph #:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="10,0,10,0" FontSize="16" FontWeight="Bold">+61 7 3317 7777</TextBlock>
                 </StackPanel>
                 
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock>The venue calling is:</TextBlock>
+                    <TextBlock Margin="5">The venue calling is:</TextBlock>
                     <StackPanel Orientation="Horizontal">
                         <TextBox Margin="5">1234</TextBox>
-                        <ComboBox Margin="5" Width="150">
+                        <ComboBox Margin="5" Width="200" SelectionChanged="VenueComboBox_SelectionChanged">
                             <ComboBoxItem>Broncos Leagues Club</ComboBoxItem>
                             <ComboBoxItem>Joe Bloggs Bowls Club</ComboBoxItem>
                             <ComboBoxItem>Kedren Wavel</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Margin="5">Speaking with:</TextBlock>
+                        <ComboBox Margin="5" Width="150" IsEditable="True" TextBoxBase.TextChanged="SpeakingWithComboBox_TextChanged">
+                            <ComboBoxItem>Tom</ComboBoxItem>
+                            <ComboBoxItem>Dick</ComboBoxItem>
+                            <ComboBoxItem>Harry</ComboBoxItem>
+                            <ComboBoxItem>Jane</ComboBoxItem>
+                            <ComboBoxItem>Mary</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>
@@ -64,5 +75,9 @@
             <Button Grid.Column="2" Grid.RowSpan="2" Width="100" Click="Button_Click">Log Call</Button>
         </Grid>
 
+        <Grid Grid.Row="2">
+            <Button DockPanel.Dock="Left" Width="100" Height="20" HorizontalAlignment="Left" Click="FakeCall1Button_Click">Fake call 1</Button>
+            <Button DockPanel.Dock="Right" Width="100" Height="20"  HorizontalAlignment="Right" Click="FakeCall1Button_Click">Fake call 2</Button>
+        </Grid>
     </Grid>
 </Window>
