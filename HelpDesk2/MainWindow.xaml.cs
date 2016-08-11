@@ -18,6 +18,27 @@ namespace HelpDesk2
     public partial class MainWindow : Window
     {
         private SDE _sde;
+
+        private static List<Venue> _venues;
+        private static List<Venue> Venues
+        {
+            get
+            {
+                if (_venues == null)
+                {
+                    _venues = new List<Venue>();
+                    int venueId = 100;
+                    var venuesStr = File.ReadAllLines("VenueNameList.txt");
+                    foreach (var venue in venuesStr)
+                    {
+                        _venues.Add(new Venue { Id = venueId++, Name = venue });
+                    }
+                }
+
+                return _venues;
+            }
+        }
+
         private static List<Details> CategoryDetails
         {
             get
@@ -81,6 +102,8 @@ namespace HelpDesk2
                 this.fake1.Opacity = 0;
                 this.fake2.Opacity = 0;
             }
+
+            var venues = Venues;
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
