@@ -6,6 +6,10 @@
         xmlns:local="clr-namespace:HelpDesk2"
         mc:Ignorable="d"
         Title="A Better Call" Height="294.8" Width="690.4">
+    <Window.Resources>
+        <local:VenueList x:Key="VenueListData" />
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -27,11 +31,9 @@
                     <TextBlock Margin="5">The venue calling is:</TextBlock>
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="_venueIdText" Margin="5" Width="76">1234</TextBox>
-                        <ComboBox x:Name="_venueCombo" IsEditable="True"  Margin="5" Width="200" SelectionChanged="VenueComboBox_SelectionChanged">
-                            <ComboBoxItem>Broncos Leagues Club</ComboBoxItem>
-                            <ComboBoxItem>Joe Bloggs Bowls Club</ComboBoxItem>
-                            <ComboBoxItem>Kedren Wavel</ComboBoxItem>
-                        </ComboBox>
+                        <ComboBox x:Name="_venueCombo" Margin="5" Width="200" ItemsSource="{Binding Source={StaticResource VenueListData}}"
+                                  IsSynchronizedWithCurrentItem="True" SelectionChanged="VenueComboBox_SelectionChanged">
+                       </ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Margin="5">Speaking with:</TextBlock>

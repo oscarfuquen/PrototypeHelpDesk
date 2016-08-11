@@ -63,6 +63,8 @@
     <Compile Include="SDE.xaml.cs">
       <DependentUpon>SDE.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Venue.cs" />
+    <Compile Include="VenueList.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,6 +122,9 @@
     </Content>
     <Content Include="icons\telephone-ring-01a.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VenueNameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
