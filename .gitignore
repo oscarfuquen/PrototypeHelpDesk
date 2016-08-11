@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/HelpDesk2/v14
+/HelpDesk2/bin/Debug
+/HelpDesk2/obj/Debug
+/HelpDesk2/ajlx5upk.tmp_proj
