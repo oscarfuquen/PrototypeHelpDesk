@@ -57,5 +57,31 @@ namespace HelpDesk2
             }
         }
 
+        private void SetBackgroundImage(string fileName)
+        {
+            BitmapImage image = new BitmapImage(new Uri("/HelpDesk2;component/sdeimages/" + fileName, UriKind.Relative));
+            _image.Source = image;
+        }
+
+        public void NewSRWithTemplate()
+        {
+            SetBackgroundImage("sr template.png");
+            _descriptionTextBox.Text = "EGM # has an event queue full.";
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetBackgroundImage("sr saved.png");
+        }
+
+        private void srCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetBackgroundImage("dashboard.png");
+        }
     }
 }

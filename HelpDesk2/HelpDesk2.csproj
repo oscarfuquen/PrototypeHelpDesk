@@ -107,6 +107,13 @@
     <Resource Include="icons\phone_green.png" />
     <Resource Include="icons\phone_red.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="sdeimages\dashboard.png" />
+    <Resource Include="sdeimages\EGMEventQueueFull.png" />
+    <Resource Include="sdeimages\sr saved - ram clear.png" />
+    <Resource Include="sdeimages\sr saved.png" />
+    <Resource Include="sdeimages\sr template.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

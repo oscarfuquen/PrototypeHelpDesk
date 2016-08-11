@@ -46,6 +46,7 @@ namespace HelpDesk2
             {
                 ComboBoxItem item = _venueCombo.SelectedItem as ComboBoxItem;
                 _sde.VenueName = item.Content as String;
+                _sde.VenueName += ", " + _venueIdText.Text;
             }
             catch
             {
@@ -62,6 +63,8 @@ namespace HelpDesk2
             {
                 // Do nothing.
             }
+
+            _sde.NewSRWithTemplate();
 
             _sde.Show();
             _sde.Activate();
