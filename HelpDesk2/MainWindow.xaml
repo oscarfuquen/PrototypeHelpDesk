@@ -1,0 +1,72 @@
+﻿<Window x:Class="HelpDesk2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelpDesk2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0" Margin="10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Image Source="C:\___TattsHack\icons\asdf\phone_green.png" Width="50" />
+                <Image Source="C:\___TattsHack\icons\asdf\phone_red.gif" Width="50" />
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock VerticalAlignment="Center" Margin="10,0,0,0">Ph #:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16" FontWeight="Bold">+61 7 3317 7777</TextBlock>
+                </StackPanel>
+                
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock>The venue calling is:</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Margin="5">1234</TextBox>
+                        <ComboBox Margin="5" Width="150">
+                            <ComboBoxItem>Broncos Leagues Club</ComboBoxItem>
+                            <ComboBoxItem>Joe Bloggs Bowls Club</ComboBoxItem>
+                            <ComboBoxItem>Kedren Wavel</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        
+        
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Margin="5,5,5,0">Category:</Label>
+            <ComboBox Grid.Column="0" Grid.Row="1" Width="150" Margin="5,0,5,5">
+                <ComboBoxItem>Broncos Leagues Club</ComboBoxItem>
+                <ComboBoxItem>Joe Bloggs Bowls Club</ComboBoxItem>
+                <ComboBoxItem>Kedren Wavel</ComboBoxItem>
+            </ComboBox>
+
+            <Label Grid.Column="1" Grid.Row="0" Margin="5,5,5,0">Detail:</Label>
+            <ComboBox Grid.Column="1" Grid.Row="1" Width="150" Margin="5,0,5,5">
+                <ComboBoxItem>Broncos Leagues Club</ComboBoxItem>
+                <ComboBoxItem>Joe Bloggs Bowls Club</ComboBoxItem>
+                <ComboBoxItem>Kedren Wavel</ComboBoxItem>
+            </ComboBox>
+
+            <Button Grid.Column="2" Grid.RowSpan="2" Width="100" Click="Button_Click">Log Call</Button>
+        </Grid>
+
+    </Grid>
+</Window>
