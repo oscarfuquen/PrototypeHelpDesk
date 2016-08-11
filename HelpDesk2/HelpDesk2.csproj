@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Details.cs" />
     <Compile Include="SDE.xaml.cs">
       <DependentUpon>SDE.xaml</DependentUpon>
     </Compile>
