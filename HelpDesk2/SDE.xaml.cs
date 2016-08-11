@@ -87,6 +87,11 @@ namespace HelpDesk2
             this.Hide();
         }
 
+        private void srCloseButtonRigth_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             SetBackgroundImage("sr saved.png");
