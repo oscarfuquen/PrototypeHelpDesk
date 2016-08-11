@@ -13,7 +13,7 @@ namespace HelpDesk2
         public VenueList() : base()
         {
             Add(new Venue { Id = 0, Name = "Unknown" });
-            int venueId = 100;
+            int venueId = 121;      // Start at random number.
             var venuesStr = File.ReadAllLines("VenueNameList.txt");
             Array.Sort(venuesStr);
             foreach (var venue in venuesStr)

@@ -134,7 +134,7 @@ namespace HelpDesk2
             try
             {
                 Venue venue = e.AddedItems[0] as Venue;
-                _sde.VenueName = venue.Name;
+                _sde.VenueName = venue.Name + ", " + venue.Id;
                 _venueIdText.Text = venue.Id.ToString();
             }
             catch
@@ -191,7 +191,7 @@ namespace HelpDesk2
         private void FakeCall1Button_Click(object sender, RoutedEventArgs e)
         {
             SetCallImage(true);
-            _venueCombo.SelectedIndex = 1;
+            _venueCombo.SelectedIndex = 2;
             _speakingWithCombo.SelectedItem = null;
             _phoneNoText.Text = "+61 7 3317 7777";
             _phoneNoText.FontWeight = FontWeights.Bold;
@@ -200,7 +200,7 @@ namespace HelpDesk2
         private void FakeCall2Button_Click(object sender, RoutedEventArgs e)
         {
             SetCallImage(true);
-            _venueCombo.SelectedIndex = 2;
+            _venueCombo.SelectedIndex = 0;
             _speakingWithCombo.SelectedItem = null;
             _phoneNoText.Text = "+61 7 3822 1234";
             _phoneNoText.FontWeight = FontWeights.Bold;
