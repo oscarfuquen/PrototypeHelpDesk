@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static System.String;
 
 namespace HelpDesk2
@@ -75,8 +70,16 @@ namespace HelpDesk2
             _sde = new SDE();
             this.Closing += MainWindow_Closing;
 
-            SetCallImage(false);
+            SetCallImage(false, false);
             _phoneNoText.FontWeight = FontWeights.Normal;
+
+            bool visibleButtons = false;
+            bool.TryParse(ConfigurationManager.AppSettings["VisibleButtons"].ToString(), out visibleButtons);
+            if (!visibleButtons)
+            {
+                this.fake1.Opacity = 0;
+                this.fake2.Opacity = 0;
+            }
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -144,18 +147,29 @@ namespace HelpDesk2
             }
         }
 
-        private void SetCallImage(bool isCallInProgress)
+        private void SetCallImage(bool isCallInProgress, bool makeSound = true)
         {
             if (isCallInProgress)
             {
+                SetSound(@"C:\Oskr\TattsHack\PrototypeHelpDesk\HelpDesk2\icons\telephone-ring-01a.wav", 3000);
                 BitmapImage image = new BitmapImage(new Uri("/HelpDesk2;component/icons/phone_green.png", UriKind.Relative));
                 _callImage.Source = image;
             }
             else
             {
+                if(makeSound)
+                SetSound(@"C:\Oskr\TattsHack\PrototypeHelpDesk\HelpDesk2\icons\phone-hang-up-1.wav", 1000);
                 BitmapImage image = new BitmapImage(new Uri("/HelpDesk2;component/icons/phone_red.gif", UriKind.Relative));
                 _callImage.Source = image;
             }
+        }
+
+        private static void SetSound(string sound, int delay = 0)
+        {
+            var ring = new SoundPlayer(sound);
+            ring.Play();
+            Thread.Sleep(delay);
+            ring.Stop();
         }
 
         private void FakeCallHangUpButton_Click(object sender, RoutedEventArgs e)
