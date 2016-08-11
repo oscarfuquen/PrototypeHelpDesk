@@ -13,16 +13,16 @@
     <Grid>
         <!--<Image Source="C:\___TattsHack\git\PrototypeHelpDesk\HelpDesk2\sdeimages\EGMEventQueueFull.png" />-->
 
-        <Image Source="C:\___TattsHack\git\PrototypeHelpDesk\HelpDesk2\sdeimages\sr template.png" />
+        <!--<Image Source="C:\___TattsHack\git\PrototypeHelpDesk\HelpDesk2\sdeimages\sr template.png" />-->
         <Image x:Name="_image" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="None" />
 
 
         <TextBlock x:Name="_venueNameText" HorizontalAlignment="Left" Margin="199,242,0,0" Text="" VerticalAlignment="Top" Width="193"/>
         <TextBlock x:Name="_spokeToText" HorizontalAlignment="Left" Margin="199,263,0,0" Text="" VerticalAlignment="Top" Width="193"/>
 
-        <Button x:Name="closeButton" Content="Close" HorizontalAlignment="Left" Margin="1820,10,0,0" VerticalAlignment="Top" Width="75" Click="closeButton_Click"/>
-        <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="87,164,0,0" VerticalAlignment="Top" Width="26" Height="27" Click="saveButton_Click"/>
-        <Button x:Name="srCloseButton" Content="X" HorizontalAlignment="Left" Margin="295,130,0,0" VerticalAlignment="Top" Width="20" Click="srCloseButton_Click"/>
+        <Button x:Name="_closeButton" Content="Close" HorizontalAlignment="Left" Margin="1850,0,0,0" VerticalAlignment="Top" Width="55" Click="closeButton_Click"/>
+        <Button x:Name="_saveButton" Content="Save" HorizontalAlignment="Left" Margin="87,164,0,0" VerticalAlignment="Top" Width="26" Height="27" Click="saveButton_Click"/>
+        <Button x:Name="_srCloseButton" Content="X" HorizontalAlignment="Left" Margin="295,130,0,0" VerticalAlignment="Top" Width="20" Click="srCloseButton_Click"/>
         <TextBox x:Name="_descriptionTextBox" HorizontalAlignment="Left" Height="104" Margin="69,488,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="372"/>
 
     </Grid>
