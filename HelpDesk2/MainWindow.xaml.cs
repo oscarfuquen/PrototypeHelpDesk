@@ -62,7 +62,11 @@ namespace HelpDesk2
             }
         }
 
-        private string speakTo { get;set; }
+        private string speakTo { get; set; }
+
+        private bool selfPopulate { get; set; }
+        private List<string> staff = new List<string>();
+        private List<string> selfPopulatestaff = new List<string>();
 
         public MainWindow()
         {
@@ -81,6 +85,8 @@ namespace HelpDesk2
                 this.fake1.Opacity = 0;
                 this.fake2.Opacity = 0;
             }
+
+            PopulateStaff();
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -116,6 +122,14 @@ namespace HelpDesk2
             if (!IsNullOrEmpty(speakTo))
             {
                 _sde.SpokeTo = speakTo;
+            }
+
+            if (staff.Any(s => s != speakTo))
+            {
+                if (selfPopulate)
+                    selfPopulatestaff.Add(speakTo);
+                else
+                    staff.Add(speakTo);
             }
 
             _sde.Show();
@@ -159,8 +173,8 @@ namespace HelpDesk2
             }
             else
             {
-                if(makeSound)
-                SetSound(Path.Combine(Environment.CurrentDirectory, @"icons\phone-hang-up-1.wav"), 1000);
+                if (makeSound)
+                    SetSound(Path.Combine(Environment.CurrentDirectory, @"icons\phone-hang-up-1.wav"), 1000);
                 BitmapImage image = new BitmapImage(new Uri("/HelpDesk2;component/icons/phone_red.gif", UriKind.Relative));
                 _callImage.Source = image;
             }
@@ -176,27 +190,45 @@ namespace HelpDesk2
 
         private void FakeCallHangUpButton_Click(object sender, RoutedEventArgs e)
         {
+            selfPopulate = false;
+            _speakingWithCombo.ItemsSource = null;
+            _speakingWithCombo.Text = string.Empty;
+            _speakingWithCombo.SelectedItem = null;
             SetCallImage(false);
             _phoneNoText.FontWeight = FontWeights.Normal;
         }
 
         private void FakeCall1Button_Click(object sender, RoutedEventArgs e)
         {
+            selfPopulate = false;
             SetCallImage(true);
             _venueIdText.Text = "234";
             _venueCombo.SelectedIndex = 1;
+            _speakingWithCombo.ItemsSource = staff;
+            _speakingWithCombo.Text = string.Empty;
             _speakingWithCombo.SelectedItem = null;
             _phoneNoText.Text = "+61 7 3317 7777";
             _phoneNoText.FontWeight = FontWeights.Bold;
         }
 
+        private void PopulateStaff()
+        {
+            staff.Add("Tom");
+            staff.Add("Dick");
+            staff.Add("Harry");
+            staff.Add("Jane");
+            staff.Add("Mary");
+        }
+
         private void FakeCall2Button_Click(object sender, RoutedEventArgs e)
         {
+            selfPopulate = true;
             SetCallImage(true);
             _venueIdText.Text = "5423";
-            _venueCombo.SelectedIndex = 2;
-            _speakingWithCombo.SelectedItem = null;
-            _phoneNoText.Text = "+61 7 3822 1234";
+            _venueCombo.SelectedIndex = 0;
+            _speakingWithCombo.ItemsSource = selfPopulatestaff;
+            _speakingWithCombo.Text = string.Empty;
+            _phoneNoText.Text = "+61 04 0449 5006";
             _phoneNoText.FontWeight = FontWeights.Bold;
         }
 

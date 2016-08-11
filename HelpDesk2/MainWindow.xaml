@@ -36,11 +36,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Margin="5">Speaking with:</TextBlock>
                         <ComboBox x:Name="_speakingWithCombo" Margin="5" Width="150" IsEditable="True" TextBoxBase.TextChanged="SpeakingWithComboBox_TextChanged">
-                            <ComboBoxItem>Tom</ComboBoxItem>
-                            <ComboBoxItem>Dick</ComboBoxItem>
-                            <ComboBoxItem>Harry</ComboBoxItem>
-                            <ComboBoxItem>Jane</ComboBoxItem>
-                            <ComboBoxItem>Mary</ComboBoxItem>
+                            
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>
