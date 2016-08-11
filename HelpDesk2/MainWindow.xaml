@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelpDesk2"
         mc:Ignorable="d"
-        Title="A Better Call" Height="250" Width="500">
+        Title="A Better Call" Height="294.8" Width="690.4">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -17,17 +17,17 @@
         <Grid Grid.Row="0" Margin="10">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Image x:Name="_callImage" Width="50" />
-                
+
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock VerticalAlignment="Center" Margin="10,0,10,0">Ph #:</TextBlock>
                     <TextBlock x:Name="_phoneNoText" VerticalAlignment="Center" Margin="10,0,10,0" FontSize="16" FontWeight="Bold">+61 7 3317 7777</TextBlock>
                 </StackPanel>
-                
+
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock Margin="5">The venue calling is:</TextBlock>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="_venueIdText" Margin="5" Width="50">1234</TextBox>
-                        <ComboBox x:Name="_venueCombo" Margin="5" Width="200" SelectionChanged="VenueComboBox_SelectionChanged">
+                        <TextBox x:Name="_venueIdText" Margin="5" Width="76">1234</TextBox>
+                        <ComboBox x:Name="_venueCombo" IsEditable="True"  Margin="5" Width="200" SelectionChanged="VenueComboBox_SelectionChanged">
                             <ComboBoxItem>Broncos Leagues Club</ComboBoxItem>
                             <ComboBoxItem>Joe Bloggs Bowls Club</ComboBoxItem>
                             <ComboBoxItem>Kedren Wavel</ComboBoxItem>
@@ -35,16 +35,17 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Margin="5">Speaking with:</TextBlock>
-                        <ComboBox x:Name="_speakingWithCombo" Margin="5" Width="150" IsEditable="True" TextBoxBase.TextChanged="SpeakingWithComboBox_TextChanged">
-                            
+                        <ComboBox x:Name="_speakingWithCombo" Margin="5" Width="199" IsEditable="True" TextBoxBase.TextChanged="SpeakingWithComboBox_TextChanged">
+
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>
+                <Image x:Name="image" Height="47" Margin="52,0,0,0" Width="116" HorizontalAlignment="Right" Source="icons/MAX.jpg" RenderTransformOrigin="1.176,0.485"/>
             </StackPanel>
         </Grid>
 
-        
-        
+
+
         <Grid Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -52,27 +53,23 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" MinWidth="191.2" />
+                <ColumnDefinition Width="auto" MinWidth="294.4" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" Grid.Row="0" Margin="5,5,5,0">Category:</Label>
-            <ComboBox Grid.Column="0" Grid.Row="1" Width="150" Margin="5,0,5,5"  SelectionChanged="ComboBox_SelectionChanged" Initialized="ComboBox_Loaded">
-               
-            </ComboBox>
+            <Label Grid.Column="0" Grid.Row="0" Margin="5,5,6,0.2">Category:</Label>
+            <ComboBox Grid.Column="0" Margin="8,30,9,5"  SelectionChanged="ComboBox_SelectionChanged" Initialized="ComboBox_Loaded" Grid.RowSpan="2"/>
 
-            <Label Grid.Column="1" Grid.Row="0" Margin="5,5,5,0">Detail:</Label>
-            <ComboBox Grid.Column="1" x:Name="CBDetails" Grid.Row="1" Width="150" Margin="5,0,5,5">
-                
-            </ComboBox>
+            <Label Grid.Column="1" Grid.Row="0" Margin="4,5,12.2,0.2">Detail:</Label>
+            <ComboBox Grid.Column="1" x:Name="CBDetails" Margin="4,30,0.2,5.2" Grid.RowSpan="2"/>
 
-            <Button Grid.Column="2" Grid.RowSpan="2" Width="100" Click="Button_Click">Log Call</Button>
+            <Button Grid.Column="2" HorizontalAlignment="Right" Click="Button_Click" Margin="0,1.6,-176,5.2" Width="121" Grid.Row="1">Log Call</Button>
         </Grid>
 
         <Grid Grid.Row="2">
             <Button x:Name="fake1" Width="100" Height="20" HorizontalAlignment="Left" Click="FakeCall1Button_Click">Fake call 1</Button>
-            <Button Width="200" Height="20" HorizontalAlignment="Center" Click="FakeCallHangUpButton_Click">Hang Up</Button>
+            <Button Width="200" Height="25" HorizontalAlignment="Center" Click="FakeCallHangUpButton_Click">Hang Up</Button>
             <Button x:Name="fake2" Width="100" Height="20"  HorizontalAlignment="Right" Click="FakeCall2Button_Click">Fake call 2</Button>
         </Grid>
     </Grid>
