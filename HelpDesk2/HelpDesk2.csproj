@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -108,9 +109,16 @@
     <Resource Include="icons\phone_red.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icons\phone-hang-up-1.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\telephone-ring-01a.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="sdeimages\dashboard.png" />
     <Resource Include="sdeimages\EGMEventQueueFull.png" />
-    <Resource Include="sdeimages\sr saved - ram clear.png" />
     <Resource Include="sdeimages\sr saved.png" />
     <Resource Include="sdeimages\sr template.png" />
   </ItemGroup>

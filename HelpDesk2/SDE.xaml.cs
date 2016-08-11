@@ -67,6 +67,9 @@ namespace HelpDesk2
         {
             SetBackgroundImage("sr template.png");
             _descriptionTextBox.Text = "EGM # has an event queue full.";
+            _descriptionTextBox.Visibility = Visibility.Visible;
+            _venueNameText.Visibility = Visibility.Visible;
+            _spokeToText.Visibility = Visibility.Visible;
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -82,6 +85,9 @@ namespace HelpDesk2
         private void srCloseButton_Click(object sender, RoutedEventArgs e)
         {
             SetBackgroundImage("dashboard.png");
+            _descriptionTextBox.Visibility = Visibility.Hidden;
+            _venueNameText.Visibility = Visibility.Hidden;
+            _spokeToText.Visibility = Visibility.Hidden;
         }
     }
 }

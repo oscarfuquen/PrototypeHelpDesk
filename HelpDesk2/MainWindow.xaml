@@ -75,9 +75,9 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <Button Width="100" Height="20" HorizontalAlignment="Left" Click="FakeCall1Button_Click">Fake call 1</Button>
+            <Button x:Name="fake1" Width="100" Height="20" HorizontalAlignment="Left" Click="FakeCall1Button_Click">Fake call 1</Button>
             <Button Width="200" Height="20" HorizontalAlignment="Center" Click="FakeCallHangUpButton_Click">Hang Up</Button>
-            <Button Width="100" Height="20"  HorizontalAlignment="Right" Click="FakeCall2Button_Click">Fake call 2</Button>
+            <Button x:Name="fake2" Width="100" Height="20"  HorizontalAlignment="Right" Click="FakeCall2Button_Click">Fake call 2</Button>
         </Grid>
     </Grid>
 </Window>
