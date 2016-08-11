@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Threading;
@@ -149,16 +150,17 @@ namespace HelpDesk2
 
         private void SetCallImage(bool isCallInProgress, bool makeSound = true)
         {
+            var currentDirectory = Environment.CurrentDirectory;
             if (isCallInProgress)
             {
-                SetSound(@"C:\Oskr\TattsHack\PrototypeHelpDesk\HelpDesk2\icons\telephone-ring-01a.wav", 3000);
+                SetSound(Path.Combine(Environment.CurrentDirectory, @"icons\telephone-ring-01a.wav"), 3000);
                 BitmapImage image = new BitmapImage(new Uri("/HelpDesk2;component/icons/phone_green.png", UriKind.Relative));
                 _callImage.Source = image;
             }
             else
             {
                 if(makeSound)
-                SetSound(@"C:\Oskr\TattsHack\PrototypeHelpDesk\HelpDesk2\icons\phone-hang-up-1.wav", 1000);
+                SetSound(Path.Combine(Environment.CurrentDirectory, @"icons\phone-hang-up-1.wav"), 1000);
                 BitmapImage image = new BitmapImage(new Uri("/HelpDesk2;component/icons/phone_red.gif", UriKind.Relative));
                 _callImage.Source = image;
             }

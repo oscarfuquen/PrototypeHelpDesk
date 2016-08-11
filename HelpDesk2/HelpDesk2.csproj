@@ -109,8 +109,12 @@
     <Resource Include="icons\phone_red.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icons\phone-hang-up-1.wav" />
-    <Content Include="icons\telephone-ring-01a.wav" />
+    <Content Include="icons\phone-hang-up-1.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\telephone-ring-01a.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
